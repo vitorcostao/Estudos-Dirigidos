@@ -422,6 +422,7 @@ void metodo_10(){
         }
     }
 
+    printf("\nTeste");
 }
 
 void metodo_11(){
