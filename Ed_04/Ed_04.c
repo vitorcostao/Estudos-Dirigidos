@@ -421,8 +421,6 @@ void metodo_10(){
             contOu++;
         }
     }
-
-    printf("\nTeste");
 }
 
 void metodo_11(){
