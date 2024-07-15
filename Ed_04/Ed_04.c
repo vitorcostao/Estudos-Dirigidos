@@ -415,28 +415,119 @@ void metodo_10(){
         array[i] = ReadDouble("Valor");
         if(array[i] >= inicio && array[i] <= fim){
 
+            printf("\nDentro: %.3lf ", array[i]);
             contIn++;
         } else if(array[i] < inicio || array[i] > fim){
-
+            printf("\nFora: %.3lf", array[i]);
             contOu++;
         }
     }
 }
 
+
 void metodo_11(){
 
+    char str[50];
+    int cont = 0;
+
+    fgets(str, 50, stdin);
+
+    for(int i = 0; i < strlen(str); i++){
+
+        if(str[i] >= 'A' && str[i] <= 'Z'){
+
+            if(str[i] > 'L' && str[i] <= 'Z'){
+
+                cont++;
+            }
+        }
+    }
+
+    printf("Existem %d letras maiores que L maiusculo\n", cont);
 }
+
+
+int ContarLetrasMl(char* str){
+
+    int cont = 0;
+
+    for(int i = 0; i < strlen(str); i++){
+
+        if(str[i] >= 'A' && str[i] <= 'Z'){
+
+            if(str[i] > 'L' && str[i] <= 'Z'){
+
+                cont++;
+            }
+        }
+    }
+    return cont;
+}
+
 
 void metodo_12(){
 
+    char str[50];
+
+    fgets(str, 50, stdin);
+    int cont = ContarLetrasMl(str);
+}
+
+void MostrarMaiorL(char* str){
+
+    int tamanho = strlen(str);
+
+    for(int i = 0; i < tamanho; i++){
+
+        if(str[i] >= 'A' && str[i] <= 'Z'){
+
+            if(str[i] > 'L' && str[i] <= 'Z'){
+
+                printf("%c ", str[i]);
+            }
+        }
+    }
+    printf("\n");
 }
 
 void metodo_13(){
+
+    char str[50];
+
+    fgets(str, 50, stdin);
+
+    MostrarMaiorL(str);
+}
+
+void MostrarMmMaiorL(char* str){
+    
+    int tamanho = strlen(str);
+
+    for(int i = 0; i < tamanho; i++){
+
+        if((str[i] >= 'A' && str[i] <= 'Z') ||
+            str[i] >= 'a' && str[i] <= 'z'){
+
+            if(str[i] > 'L' && str[i] <= 'Z'){
+
+                printf("%c ", str[i]);
+
+            } else if(str[i] > 'l' && str[i] <= 'z'){
+
+                printf("%c ", str[i]);
+            }
+        }
+    }
 
 }
 
 void metodo_14(){
 
+    char str[50];
+
+    fgets(str, 50, stdin);
+
+    MostrarMmMaiorL(str);
 }
 
 void metodo_15(){
@@ -572,3 +663,4 @@ int main (){
 
     return 0;
 }
+
