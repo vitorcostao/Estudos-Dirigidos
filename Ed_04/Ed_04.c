@@ -471,6 +471,7 @@ void metodo_12(){
 
     fgets(str, 50, stdin);
     int cont = ContarLetrasMl(str);
+    printf("Existem %d letras que satifazem a condicao", cont);
 }
 
 void MostrarMaiorL(char* str){
@@ -500,8 +501,9 @@ void metodo_13(){
 }
 
 void MostrarMmMaiorL(char* str){
-    
+
     int tamanho = strlen(str);
+    int cont = 0;
 
     for(int i = 0; i < tamanho; i++){
 
@@ -510,15 +512,16 @@ void MostrarMmMaiorL(char* str){
 
             if(str[i] > 'L' && str[i] <= 'Z'){
 
-                printf("%c ", str[i]);
+                cont++;
 
             } else if(str[i] > 'l' && str[i] <= 'z'){
 
-                printf("%c ", str[i]);
+                cont++;
             }
         }
     }
 
+    printf("Existem %d letras que satifazem a condicao", cont);
 }
 
 void metodo_14(){
@@ -530,25 +533,137 @@ void metodo_14(){
     MostrarMmMaiorL(str);
 }
 
+void MostrarMmMaiorLl(char* str){
+
+    int tamanho = strlen(str);
+
+    for(int i = 0; i < tamanho; i++){
+
+        if((str[i] >= 'A' && str[i] <= 'Z') ||
+            str[i] >= 'a' && str[i] <= 'z'){
+
+            if(str[i] >= 'A' && str[i] < 'L'){
+
+                printf("%c ", str[i]);
+
+            } else if(str[i] >= 'a' && str[i] < 'l'){
+
+                printf("%c ", str[i]);
+            }
+        }
+    }
+}
+
 void metodo_15(){
 
+    char str[50];
+
+    fgets(str, 50, stdin);
+
+    MostrarMmMaiorLl(str);
+
+}
+
+void DigitosPares(char* str){
+
+    int cont = 0;
+
+    for(int i = 0; i < strlen(str) - 1; i++){
+
+        if(str[i] >= '0' && str[i] <= '9'){
+
+            if((int)str[i] % 2 == 0){
+
+                cont++;
+            }
+        }
+    }
+
+    printf("\nExistem %d digitos pares\n", cont);
 }
 
 void metodo_16(){
 
+    char str[50];
+
+    fgets(str, 50, stdin);
+
+    DigitosPares(str);
+}
+
+void NaoAlfa(char* str){
+
+    for(int i = 0; i < strlen(str) - 1; i++){
+
+        if(!isalnum(str[i])){
+
+            printf("%c ", str[i]);
+        }
+    }
 }
 
 void metodo_17(){
 
+    char str[50];
+
+    fgets(str, 50, stdin);
+
+    NaoAlfa(str);
+}
+
+void Alfa(char* str){
+
+    for(int i = 0; i < strlen(str) - 1; i++){
+
+        if(isalnum(str[i])){
+
+            printf("%c ", str[i]);
+        }
+    }
+
+    printf("\n");
 }
 
 void metodo_18(){
 
+    char str[50];
+
+    fgets(str, 50, stdin);
+
+    Alfa(str);
+}
+
+void AlfaEmCadaPalavra(char* str){
+
+    int cont = 0;
+
+    for(int i = 0; i < strlen(str); i++){
+
+        if(isalnum(str[i])){
+
+            cont++;
+            printf("%c ", str[i]);
+        }
+    }
+
+    printf("\nExistem %d caracteres que satifazem a condicao", cont);
+    printf("\n");
 }
 
 void metodo_19(){
 
+    int n = ReadInt("Leia um valor inteiro para ser a quantia de palavras");
+
+    for(int i = 0; i < n; i++){
+
+        char str[50];
+
+        fgets(str, 50, stdin);
+
+        AlfaEmCadaPalavra(str);
+    }
 }
+
 
 
 void metodo_20(){
@@ -663,4 +778,5 @@ int main (){
 
     return 0;
 }
+
 
