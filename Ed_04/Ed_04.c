@@ -501,7 +501,7 @@ void metodo_13(){
 }
 
 void MostrarMmMaiorL(char* str){
-
+    
     int tamanho = strlen(str);
     int cont = 0;
 
@@ -665,7 +665,6 @@ void metodo_19(){
 }
 
 
-
 void metodo_20(){
 
 }
@@ -778,5 +777,4 @@ int main (){
 
     return 0;
 }
-
 
