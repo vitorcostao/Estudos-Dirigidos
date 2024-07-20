@@ -152,7 +152,7 @@ double SomarFracoes2a(int x){
 void metodo_07(){
 
     printf("\n");
-    
+
     double soma = 0.0;
 
     soma = SomarFracoes2a(5);
@@ -216,44 +216,133 @@ void metodo_09(){
 }
 
 int contarMinusculas(char* cadeia, int x){
-    
+
     int resposta = 0;
-    
+
     if(0 <= x && x < strlen(cadeia)){
-        
+
         if(cadeia[x] >= 'a' &&
            cadeia[x] <= 'z'){
-            
+
             resposta = 1;
         }
-        
-        resposta = resposta + contarMinusculas(cadeia, x + 1)
+
+        resposta = resposta + contarMinusculas(cadeia, x + 1);
     }
-    
+
     return resposta;
 }
 
 void metodo_10(){
-    
+
     printf ( "Minusculas (\"abc\",0) = %d\n", contarMinusculas ( "abc", 0 ) );
     printf ( "Minusculas (\"aBc\",0) = %d\n", contarMinusculas ( "aBc", 0 ) );
     printf ( "Minusculas (\"AbC\",0) = %d\n", contarMinusculas ( "AbC", 0 ) );
 
 }
 
+void multiplos6(int x, int valorInicial){
+
+    if(x > 0){
+
+        printf("\nValor: %d", valorInicial);
+        multiplos6(x - 1, valorInicial + 6);
+
+    } else if(x < 0){
+
+        printf("\nValor: %d", valorInicial);
+        multiplos6(-x - 1, valorInicial + 6);
+
+    }
+}
+
 void metodo_11(){
 
+    printf("\n");
+    int x            = ReadInt("Defina a quantia");
+    int valorInicial = 6;
+
+    multiplos6(x, valorInicial);
+}
+
+void multiplos6D(int x, int valorInicial){
+
+    if(x > 0){
+
+        printf("\nValor: %d", valorInicial);
+        multiplos6D(x - 1, valorInicial - 6);
+
+    } else if(x < 0){
+
+        printf("\nValor: %d", valorInicial);
+        multiplos6D(-x - 1, valorInicial - 6);
+
+    }
 }
 
 void metodo_12(){
 
+    printf("\n");
+    int x            = ReadInt("Defina a quantia");
+    int valorInicial = 6 * x;
+
+    multiplos6D(x, valorInicial);
+}
+
+void InversosMultiplos6(int x, double den, double num, int i){
+
+    if(x > 0){
+
+        printf("\n%d: %.1lf / %.1lf", x - (x - i), num, den);
+        InversosMultiplos6(x - 1, den + 6.0, num, i + 1);
+
+    } else if(x < 0){
+
+        printf("\n%d: %.1lf / %.1lf", x - 1, num, den);
+        InversosMultiplos6(-x - 1, den + 6, num, i + 1);
+
+    }
 }
 
 void metodo_13(){
 
+    printf("\n");
+
+    int x      = ReadInt("Defina a quantia");
+    double den = 1.0;
+    double num = 1.0;
+
+    printf("\n%d: %.1lf / %.1lf", x - (x - 1), num, den);
+    InversosMultiplos6(x - 1, den + 5, num, 2);
+
+}
+
+void InversosMultiplos6D(int x, double den, double num, int i){
+
+    if(x > 1){
+
+        InversosMultiplos6D(x - 1, den + 6.0, num, i + 1);
+        printf("\n%d: %.1lf / %.1lf", x - (x - 1) , num, den);
+
+
+    } else if(x < 1){
+
+        InversosMultiplos6D(x - 1, den + 6.0, num, i + 1);
+        printf("\n%d: %.1lf / %.1lf", -(x - (x - 1)), num, den);
+
+    }
 }
 
 void metodo_14(){
+
+    printf("\n");
+
+    int x    = ReadInt("Defina a quantia");
+    double denI = 6.0;
+    double numI = 1.0;
+
+    InversosMultiplos6D(x, denI, numI, 2);
+    printf("\n%d: %.1lf / %.1lf", 1, 1.0, 1.0);
 
 }
 
@@ -296,7 +385,7 @@ int main (){
 
     do{
 
-        printf("\nDigite a opcao: ");
+        printf("\n\nDigite a opcao: ");
         scanf("%d", &opcao);
         getchar();
 
