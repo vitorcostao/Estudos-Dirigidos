@@ -346,24 +346,120 @@ void metodo_14(){
 
 }
 
+int somarPApar(int x, int razao, int soma, int valor){
+
+    if(x > 0){
+
+        soma = soma + valor;
+        return somarPApar(x - 1, razao + 2, soma, valor + razao);
+    }
+
+    return soma;
+}
+
 void metodo_15(){
 
+    printf("\n");
+
+    int quantia = ReadInt("Defina a quantia");
+    int soma    = somarPApar(quantia, 2, 0, 6);
+
+    printf("\n");
+    printf("A soma definida pela quantia eh %d", soma);
+
+    printf("\n");
+}
+
+void PrintString(int tamanho, int i, char* str){
+
+    if(i < tamanho){
+
+        printf("\n%c", str[i]);
+        PrintString(tamanho, i + 1, str);
+    }
 }
 
 void metodo_16(){
 
+    printf("\n");
+    char string[50];
+    fgets(string, 50, stdin);
+
+    int tamanho = strlen(string);
+
+    PrintString(tamanho, 0, string);
+    printf("\n");
+
+}
+
+int DigitosPares(int tamanho, int i, char* str, int contador){
+
+    if(i < tamanho){
+
+       if(isdigit(str[i]) && (str[i] - '0') % 2 == 0){
+
+          printf("\n%c", str[i]);
+          contador++;
+       }
+
+       return DigitosPares(tamanho, i + 1, str, contador);
+    }
+
+    return contador;
 }
 
 void metodo_17(){
 
+    printf("\n");
+    char string[50];
+    fgets(string, 50, stdin);
+
+    int tamanho = strlen(string);
+
+    int contador = DigitosPares(tamanho, 0, string, 0);
+
+    printf("\nO numero de digitos pares eh: %d", contador);
+    printf("\n");
+}
+
+int CaracteresML(int tamanho, int i, char* str, int contador){
+
+    if(i < tamanho){
+
+        if(isalpha(str[i]) && (str[i] >= 'A' && str[i] < 'L')){
+
+            printf("\n%c", str[i]);
+            contador++;
+        }
+
+        CaracteresML(tamanho, i + 1, str, contador);
+    }
+
+    return contador;
 }
 
 void metodo_18(){
 
+    printf("\n");
+    char string[50];
+    fgets(string, 50, stdin);
+
+    int tamanho = strlen(string);
+
+    int contador = CaracteresML(tamanho, 0, string, 0);
+
+    printf("\nO numero de digitos menores que L eh: %d", contador);
+    printf("\n");
+}
+
+int certoTermoParFibo(int x, int valor){
+    
+    
 }
 
 void metodo_19(){
-
+    
+    
 }
 
 
